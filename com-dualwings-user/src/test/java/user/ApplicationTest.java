@@ -1,5 +1,6 @@
-package com.dualwings.user;
+package user;
 
+import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +9,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableFeignClients
-public class Application {
+public class ApplicationTest {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(ApplicationTest.class,args);
+        System.out.println("ApplicationTest*************");
     }
 
 }
