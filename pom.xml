@@ -90,5 +90,6 @@
   
   <modules>
   	<module>com-dualwings-user</module>
+  	<module>com-dualwing-sales</module>
   </modules>
 </project>
