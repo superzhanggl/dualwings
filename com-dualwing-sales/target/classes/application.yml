@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+
+spring:
+  application:
+    name: com-dualwings-sales
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dysalesystem?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+
+
+  mybatis:
+    mapperLocations: classpath:mapper/*.xml
+    type-aliases-package: com.dualwings.sales.pro  #可用可不用
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+  #注册中心的选择
+
+
