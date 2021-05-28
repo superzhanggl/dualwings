@@ -18,11 +18,11 @@ import org.springframework.web.client.RestTemplate;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.dualwings.common.utils.SnowFlake;
 import com.dualwings.sales.dto.CommonResult;
 import com.dualwings.sales.dto.QryDataInfo;
 import com.dualwings.sales.po.SalesInfo;
 import com.dualwings.sales.service.SalesInfoService;
-import com.dualwings.sales.utils.SnowFlake;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.convert.Convert;
@@ -46,6 +46,7 @@ public class SalesInfoController {
     private SalesInfoService salesInfoService;
     private static Logger  logger=Logger.getLogger(SalesInfoController.class);
     
+   
     
     @ApiOperation(value="添加销售成员",notes="添加销售成员")
     @RequestMapping("appendSalesMb")

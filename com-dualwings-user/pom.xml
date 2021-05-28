@@ -8,7 +8,7 @@
   <groupId>com.dualwings.web</groupId>
   <artifactId>com-dualwings-user</artifactId>
   
-  <build>
+   <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -38,13 +38,11 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -66,7 +64,24 @@
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+		 <dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+	    <dependency>
+	        <groupId>commons-logging</groupId>
+	        <artifactId>commons-logging</artifactId>
+	        <version>1.2</version>
+		</dependency>
+         <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
+        <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-data-redis</artifactId>
+       	</dependency>
+	
 		<!-- <dependency>
 	        <groupId>io.springfox</groupId>
 	        <artifactId>springfox-swagger2</artifactId>
@@ -99,12 +114,12 @@
 	        <dependency>
 	            <groupId>io.springfox</groupId>
 	            <artifactId>springfox-swagger2</artifactId>
-	            <version>2.8.0</version>
+	            <version>2.9.0</version>
 	        </dependency>
 	        <dependency>
 	            <groupId>io.springfox</groupId>
 	            <artifactId>springfox-swagger-ui</artifactId>
-	            <version>2.8.0</version>
+	            <version>2.9.0</version>
 	        </dependency>
 	        <!-- 解决FluentIterable.class找不到问题 -->
 	        <dependency>
@@ -124,9 +139,17 @@
 				<artifactId>spring-boot-devtools</artifactId>
 				<optional>true</optional>
 			</dependency>
+		<dependency>
+		    <groupId>cn.hutool</groupId>
+		    <artifactId>hutool-all</artifactId>
+		    <version>5.5.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.dualwings.common</groupId>
+			<artifactId>com-dualwings-common</artifactId>
+		</dependency>
 		
-        
     </dependencies>
- 
   
 </project>
