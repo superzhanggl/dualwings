@@ -1,0 +1,202 @@
+21:09:15.589 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:13:36.115 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:14:04.171 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:16:55.959 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:18:15.316 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:24:03.472 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:27:10.739 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:27:40.653 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:33:26.084 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:35:42.380 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:41:54.622 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.18.Final
+21:44:25.931 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+21:44:27.249 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+21:44:27.250 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:44:27.250 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+21:44:27.365 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:44:30.799 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+21:44:30.806 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+21:44:34.419 [RMI TCP Connection(1)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:44:34.469 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+21:44:34.721 [restartedMain] INFO  c.a.c.n.r.NacosServiceRegistry - [register,62] - nacos registry, com-dualwings-sales 192.168.204.1:8081 register finished
+21:44:36.386 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 14.267 seconds (JVM running for 15.421)
+21:47:01.788 [Thread-13] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+21:47:01.794 [Thread-13] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+21:47:01.797 [Thread-13] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+21:47:05.716 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+21:47:06.177 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+21:47:06.177 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:47:06.178 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+21:47:06.207 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:47:07.928 [restartedMain] INFO  c.a.n.client.naming - [call,56] - initializer namespace from System Property :null
+21:47:07.929 [restartedMain] INFO  c.a.n.client.naming - [call,65] - initializer namespace from System Environment :null
+21:47:07.929 [restartedMain] INFO  c.a.n.client.naming - [call,75] - initializer namespace from System Property :null
+21:47:08.449 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+21:47:11.797 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+21:47:11.800 [restartedMain] INFO  c.a.n.client.naming - [addBeatInfo,58] - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"192.168.204.1","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":8081,"scheduled":false,"serviceName":"DEFAULT_GROUP@@com-dualwings-sales","stopped":false,"weight":1.0} to beat map.
+21:47:11.800 [restartedMain] INFO  c.a.n.client.naming - [registerService,172] - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":8081,"weight":1.0}
+21:47:11.803 [restartedMain] INFO  c.a.c.n.r.NacosServiceRegistry - [register,62] - nacos registry, com-dualwings-sales 192.168.204.1:8081 register finished
+21:47:13.379 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 10.986 seconds (JVM running for 172.414)
+21:51:15.139 [RMI TCP Connection(11)-127.0.0.1] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+21:51:15.140 [RMI TCP Connection(11)-127.0.0.1] INFO  c.a.n.client.naming - [removeBeatInfo,65] - [BEAT] removing beat: DEFAULT_GROUP@@com-dualwings-sales:192.168.204.1:8081 from beat map.
+21:51:15.141 [RMI TCP Connection(11)-127.0.0.1] INFO  c.a.n.client.naming - [deregisterService,194] - [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{},"port":8081,"weight":1.0}
+21:51:15.144 [RMI TCP Connection(11)-127.0.0.1] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+21:51:15.146 [RMI TCP Connection(11)-127.0.0.1] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+21:51:15.147 [RMI TCP Connection(11)-127.0.0.1] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+21:51:15.562 [RMI TCP Connection(11)-127.0.0.1] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+21:51:15.569 [RMI TCP Connection(11)-127.0.0.1] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+21:51:15.570 [RMI TCP Connection(11)-127.0.0.1] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+21:52:02.600 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+21:52:03.777 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+21:52:03.777 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:52:03.777 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+21:52:03.901 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:52:07.260 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+21:52:07.265 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+21:52:10.897 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:52:10.967 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+21:52:11.078 [restartedMain] INFO  c.a.c.n.r.NacosServiceRegistry - [register,62] - nacos registry, com-dualwings-sales 192.168.204.1:8081 register finished
+21:52:12.735 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 13.897 seconds (JVM running for 15.022)
+21:52:42.749 [Thread-13] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+21:52:42.754 [Thread-13] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+21:52:42.756 [Thread-13] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+21:52:46.548 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+21:52:46.996 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+21:52:46.996 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:52:46.997 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+21:52:47.025 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:52:48.701 [restartedMain] INFO  c.a.n.client.naming - [call,56] - initializer namespace from System Property :null
+21:52:48.702 [restartedMain] INFO  c.a.n.client.naming - [call,65] - initializer namespace from System Environment :null
+21:52:48.702 [restartedMain] INFO  c.a.n.client.naming - [call,75] - initializer namespace from System Property :null
+21:52:49.150 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+21:52:52.457 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+21:52:52.460 [restartedMain] INFO  c.a.n.client.naming - [addBeatInfo,58] - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"192.168.204.1","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":8081,"scheduled":false,"serviceName":"DEFAULT_GROUP@@com-dualwings-sales","stopped":false,"weight":1.0} to beat map.
+21:52:52.461 [restartedMain] INFO  c.a.n.client.naming - [registerService,172] - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":8081,"weight":1.0}
+21:52:52.475 [restartedMain] INFO  c.a.c.n.r.NacosServiceRegistry - [register,62] - nacos registry, com-dualwings-sales 192.168.204.1:8081 register finished
+21:52:54.027 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 10.729 seconds (JVM running for 56.314)
+21:52:59.606 [RMI TCP Connection(5)-127.0.0.1] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+21:52:59.607 [RMI TCP Connection(5)-127.0.0.1] INFO  c.a.n.client.naming - [removeBeatInfo,65] - [BEAT] removing beat: DEFAULT_GROUP@@com-dualwings-sales:192.168.204.1:8081 from beat map.
+21:52:59.607 [RMI TCP Connection(5)-127.0.0.1] INFO  c.a.n.client.naming - [deregisterService,194] - [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{},"port":8081,"weight":1.0}
+21:52:59.610 [RMI TCP Connection(5)-127.0.0.1] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+21:52:59.611 [RMI TCP Connection(5)-127.0.0.1] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+21:52:59.612 [RMI TCP Connection(5)-127.0.0.1] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-8081"]
+21:52:59.992 [RMI TCP Connection(5)-127.0.0.1] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+21:52:59.998 [RMI TCP Connection(5)-127.0.0.1] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-8081"]
+21:53:00.000 [RMI TCP Connection(5)-127.0.0.1] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-8081"]
+23:48:06.600 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+23:48:08.213 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+23:48:08.213 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+23:48:08.213 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+23:48:08.343 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+23:48:12.176 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:48:12.183 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:48:15.928 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:48:16.131 [redisMessageListenerContainer-1] INFO  i.l.c.EpollProvider - [<clinit>,68] - Starting without optional epoll library
+23:48:16.133 [redisMessageListenerContainer-1] INFO  i.l.c.KqueueProvider - [<clinit>,70] - Starting without optional kqueue library
+23:48:17.500 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+23:48:21.323 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 18.799 seconds (JVM running for 20.171)
+23:51:24.236 [Thread-13] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+23:51:26.285 [Thread-13] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+23:51:26.428 [Thread-13] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+23:51:30.346 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+23:51:30.888 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+23:51:30.889 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+23:51:30.889 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+23:51:30.923 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+23:51:32.810 [restartedMain] INFO  c.a.n.client.naming - [call,56] - initializer namespace from System Property :null
+23:51:32.810 [restartedMain] INFO  c.a.n.client.naming - [call,65] - initializer namespace from System Environment :null
+23:51:32.811 [restartedMain] INFO  c.a.n.client.naming - [call,75] - initializer namespace from System Property :null
+23:51:33.308 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:51:36.821 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+23:51:36.825 [restartedMain] INFO  c.a.n.client.naming - [addBeatInfo,58] - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"192.168.204.1","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":8081,"scheduled":false,"serviceName":"DEFAULT_GROUP@@com-dualwings-sales","stopped":false,"weight":1.0} to beat map.
+23:51:36.825 [restartedMain] INFO  c.a.n.client.naming - [registerService,172] - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":8081,"weight":1.0}
+23:51:40.481 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 13.42 seconds (JVM running for 219.329)
+23:51:40.486 [Thread-25] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+23:51:40.487 [Thread-25] INFO  c.a.n.client.naming - [removeBeatInfo,65] - [BEAT] removing beat: DEFAULT_GROUP@@com-dualwings-sales:192.168.204.1:8081 from beat map.
+23:51:40.487 [Thread-25] INFO  c.a.n.client.naming - [deregisterService,194] - [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{},"port":8081,"weight":1.0}
+23:51:42.521 [Thread-25] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+23:51:42.643 [Thread-25] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+23:51:46.573 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+23:51:47.039 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+23:51:47.039 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+23:51:47.039 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+23:51:47.071 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+23:51:48.779 [restartedMain] INFO  c.a.n.client.naming - [call,56] - initializer namespace from System Property :null
+23:51:48.779 [restartedMain] INFO  c.a.n.client.naming - [call,65] - initializer namespace from System Environment :null
+23:51:48.780 [restartedMain] INFO  c.a.n.client.naming - [call,75] - initializer namespace from System Property :null
+23:51:49.251 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:51:52.667 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+23:51:52.670 [restartedMain] INFO  c.a.n.client.naming - [addBeatInfo,58] - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"192.168.204.1","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":8081,"scheduled":false,"serviceName":"DEFAULT_GROUP@@com-dualwings-sales","stopped":false,"weight":1.0} to beat map.
+23:51:52.671 [restartedMain] INFO  c.a.n.client.naming - [registerService,172] - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":8081,"weight":1.0}
+23:51:56.332 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 13.063 seconds (JVM running for 235.18)
+23:52:22.943 [RMI TCP Connection(10)-127.0.0.1] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+23:52:22.947 [RMI TCP Connection(10)-127.0.0.1] INFO  c.a.n.client.naming - [removeBeatInfo,65] - [BEAT] removing beat: DEFAULT_GROUP@@com-dualwings-sales:192.168.204.1:8081 from beat map.
+23:52:22.947 [RMI TCP Connection(10)-127.0.0.1] INFO  c.a.n.client.naming - [deregisterService,194] - [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{},"port":8081,"weight":1.0}
+23:52:41.731 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+23:52:43.247 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+23:52:43.248 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+23:52:43.248 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+23:52:43.371 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+23:52:45.644 [restartedMain] INFO  i.l.c.EpollProvider - [<clinit>,68] - Starting without optional epoll library
+23:52:45.645 [restartedMain] INFO  i.l.c.KqueueProvider - [<clinit>,70] - Starting without optional kqueue library
+23:52:47.677 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:52:47.681 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:52:51.381 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:52:51.637 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+23:52:51.824 [restartedMain] INFO  c.a.c.n.r.NacosServiceRegistry - [register,62] - nacos registry, com-dualwings-sales 192.168.204.1:8081 register finished
+23:52:53.496 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 16.026 seconds (JVM running for 17.204)
+23:53:35.567 [Thread-17] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+23:53:35.574 [Thread-17] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+23:53:35.697 [Thread-17] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+23:53:39.599 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+23:53:40.105 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+23:53:40.105 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+23:53:40.105 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+23:53:40.138 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+23:53:41.825 [restartedMain] INFO  c.a.n.client.naming - [call,56] - initializer namespace from System Property :null
+23:53:41.825 [restartedMain] INFO  c.a.n.client.naming - [call,65] - initializer namespace from System Environment :null
+23:53:41.825 [restartedMain] INFO  c.a.n.client.naming - [call,75] - initializer namespace from System Property :null
+23:53:42.294 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:53:45.678 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+23:53:45.682 [restartedMain] INFO  c.a.n.client.naming - [addBeatInfo,58] - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"192.168.204.1","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":8081,"scheduled":false,"serviceName":"DEFAULT_GROUP@@com-dualwings-sales","stopped":false,"weight":1.0} to beat map.
+23:53:45.683 [restartedMain] INFO  c.a.n.client.naming - [registerService,172] - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":8081,"weight":1.0}
+23:53:45.687 [restartedMain] INFO  c.a.c.n.r.NacosServiceRegistry - [register,62] - nacos registry, com-dualwings-sales 192.168.204.1:8081 register finished
+23:53:47.269 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 10.922 seconds (JVM running for 70.977)
+23:56:02.862 [Thread-25] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+23:56:02.862 [Thread-25] INFO  c.a.n.client.naming - [removeBeatInfo,65] - [BEAT] removing beat: DEFAULT_GROUP@@com-dualwings-sales:192.168.204.1:8081 from beat map.
+23:56:02.862 [Thread-25] INFO  c.a.n.client.naming - [deregisterService,194] - [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{},"port":8081,"weight":1.0}
+23:56:02.867 [Thread-25] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+23:56:02.996 [Thread-25] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+23:56:06.924 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+23:56:07.406 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+23:56:07.406 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+23:56:07.406 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+23:56:07.436 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+23:56:09.110 [restartedMain] INFO  c.a.n.client.naming - [call,56] - initializer namespace from System Property :null
+23:56:09.110 [restartedMain] INFO  c.a.n.client.naming - [call,65] - initializer namespace from System Environment :null
+23:56:09.110 [restartedMain] INFO  c.a.n.client.naming - [call,75] - initializer namespace from System Property :null
+23:56:09.596 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:56:12.963 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+23:56:12.966 [restartedMain] INFO  c.a.n.client.naming - [addBeatInfo,58] - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"192.168.204.1","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":8081,"scheduled":false,"serviceName":"DEFAULT_GROUP@@com-dualwings-sales","stopped":false,"weight":1.0} to beat map.
+23:56:12.967 [restartedMain] INFO  c.a.n.client.naming - [registerService,172] - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":8081,"weight":1.0}
+23:56:12.971 [restartedMain] INFO  c.a.c.n.r.NacosServiceRegistry - [register,62] - nacos registry, com-dualwings-sales 192.168.204.1:8081 register finished
+23:56:14.583 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 10.954 seconds (JVM running for 218.292)
+23:58:20.070 [Thread-43] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,74] - De-registering from Nacos Server now...
+23:58:20.071 [Thread-43] INFO  c.a.n.client.naming - [removeBeatInfo,65] - [BEAT] removing beat: DEFAULT_GROUP@@com-dualwings-sales:192.168.204.1:8081 from beat map.
+23:58:20.071 [Thread-43] INFO  c.a.n.client.naming - [deregisterService,194] - [DEREGISTER-SERVICE] public deregistering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{},"port":8081,"weight":1.0}
+23:58:20.076 [Thread-43] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,93] - De-registration finished.
+23:58:20.193 [Thread-43] INFO  c.a.d.p.DruidDataSource - [close,1885] - {dataSource-0} closing ...
+23:58:24.095 [restartedMain] INFO  c.d.s.Application - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+23:58:24.576 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+23:58:24.576 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+23:58:24.577 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+23:58:24.605 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+23:58:26.290 [restartedMain] INFO  c.a.n.client.naming - [call,56] - initializer namespace from System Property :null
+23:58:26.290 [restartedMain] INFO  c.a.n.client.naming - [call,65] - initializer namespace from System Environment :null
+23:58:26.290 [restartedMain] INFO  c.a.n.client.naming - [call,75] - initializer namespace from System Property :null
+23:58:26.756 [restartedMain] INFO  c.n.c.s.URLConfigurationSource - [<init>,122] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+23:58:30.140 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+23:58:30.144 [restartedMain] INFO  c.a.n.client.naming - [addBeatInfo,58] - [BEAT] adding beat: {"cluster":"DEFAULT","ip":"192.168.204.1","metadata":{"preserved.register.source":"SPRING_CLOUD"},"period":5000,"port":8081,"scheduled":false,"serviceName":"DEFAULT_GROUP@@com-dualwings-sales","stopped":false,"weight":1.0} to beat map.
+23:58:30.144 [restartedMain] INFO  c.a.n.client.naming - [registerService,172] - [REGISTER-SERVICE] public registering service DEFAULT_GROUP@@com-dualwings-sales with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ip":"192.168.204.1","ipDeleteTimeout":30000,"metadata":{"preserved.register.source":"SPRING_CLOUD"},"port":8081,"weight":1.0}
+23:58:30.148 [restartedMain] INFO  c.a.c.n.r.NacosServiceRegistry - [register,62] - nacos registry, com-dualwings-sales 192.168.204.1:8081 register finished
+23:58:31.738 [restartedMain] INFO  c.d.s.Application - [logStarted,61] - Started Application in 10.896 seconds (JVM running for 355.445)
