@@ -13,12 +13,13 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Slf4j
 //@FeignClient
-@Api(tags="订单管理")
+@Api(tags="系统基本管理")
 @RequestMapping("")
 public class BasicController {
     // @Resource
     private RestTemplate restTemplate;
     private static Logger  logger=Logger.getLogger(BasicController.class);
+    
     
    
     

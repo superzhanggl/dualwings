@@ -17,7 +17,7 @@ public class SpringConfig {
 	 * 修改redis的key和value序列化方式
 	 * @param redisTemplate
 	 */
-	@Autowired(required = false)
+	//@Autowired(required = false)
 	public void setRedisTemplate(RedisTemplate redisTemplate) {
 	    RedisSerializer stringSerializer = new StringRedisSerializer();
 	    redisTemplate.setKeySerializer(stringSerializer);
@@ -30,12 +30,12 @@ public class SpringConfig {
 	@PostConstruct
 	private void getMap() {
 		// 测试redis
-		ValueOperations ops = redisTemplate.opsForValue();
-		String str3 = (String) ops.get("name");
-		System.out.println("redis:"+str3);
-		System.out.println("redis:"+redisTemplate.hasKey("name"));
-		redisTemplate.boundValueOps("stingKey").set("StringValue");
-		System.out.println("redis:"+(String) ops.get("stingKey"));
+//		ValueOperations ops = redisTemplate.opsForValue();
+//		String str3 = (String) ops.get("name");
+//		System.out.println("redis:"+str3);
+//		System.out.println("redis:"+redisTemplate.hasKey("name"));
+//		redisTemplate.boundValueOps("stingKey").set("StringValue");
+//		System.out.println("redis:"+(String) ops.get("stingKey"));
 	}
 
 }
