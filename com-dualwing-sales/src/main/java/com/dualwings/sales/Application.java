@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @MapperScan({"com.dualwings.sales.dao","com.dualwings.sales.dto","com.dualwings.sales.utils","com.dualwings.sales.config"})
 //@EnableFeignClients
 //@NacosPropertySource(dataId = "boot-user-service", autoRefreshed = true)
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 public class Application {
 
     public static void main(String[] args) {

@@ -3,7 +3,10 @@ package com.dualwings.sales.controller;
 
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,13 +23,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dualwings.common.utils.SnowFlake;
 import com.dualwings.sales.dto.CommonResult;
-import com.dualwings.sales.dto.QryDataInfo;
 import com.dualwings.sales.po.SalesInfo;
 import com.dualwings.sales.service.SalesInfoService;
 
-import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -38,7 +40,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 //@FeignClient
 @Api(tags="销售管理")
-@RequestMapping("api")
+@RequestMapping("sales")
 public class SalesInfoController {
     // @Resource
     private RestTemplate restTemplate;
@@ -46,9 +48,7 @@ public class SalesInfoController {
     private SalesInfoService salesInfoService;
     private static Logger  logger=Logger.getLogger(SalesInfoController.class);
     
-   
-    
-    @ApiOperation(value="添加销售成员",notes="添加销售成员")
+	@ApiOperation(value="添加销售成员",notes="添加销售成员")
     @RequestMapping("appendSalesMb")
     public boolean appendSalesMb(@RequestBody SalesInfo salesInfo){
     	try {
@@ -124,15 +124,17 @@ public class SalesInfoController {
     		@RequestParam(value="saleStatus",required = false) String saleStatus,
     		@RequestParam(value="mbSalePid",required = false) String mbSalePid,
     		@RequestParam(value="mbSaleId",required = false) String mbSaleId,
-    		@RequestParam(value="start",required = false) Integer start,
-    		@RequestParam(value="limit",required = false) Integer limit,HttpServletRequest request
+    		@RequestParam(value="start",required = false) String start,
+    		@RequestParam(value="limit",required = false) String limit,HttpServletRequest request
     		){
-		System.out.println("**********方法体的*********"+request.getParameterValues("name")[0]);
     	IPage<SalesInfo> rows=null;
-    	CommonResult result=null;
-    		// 校验当前登录人是否关联了销售成员,获取当前销售人员的编号
+    	CommonResult result=new CommonResult();
+    	
+		try {
+			// 校验当前登录人是否关联了销售成员,获取当前销售人员的编号
     		String acct_sale_id="";
-    		
+    		int pageStart=StrUtil.isBlank(start)?0:NumberUtil.parseInt(start);
+        	int pageLimit=StrUtil.isBlank(limit)?10:NumberUtil.parseInt(limit);
     		
     		QueryWrapper queryWrapper =new QueryWrapper();
         	queryWrapper
@@ -146,36 +148,150 @@ public class SalesInfoController {
         	if(!StrUtil.isBlank(acct_sale_id)) {
         		queryWrapper.like(StrUtil.isBlank(acct_sale_id), "sale_path", acct_sale_id);
         	}
-        	System.out.println("StrUtil.isBlank(saleLvl):"+StrUtil.isBlank(saleLvl));
-//        	start=StrUtil.isBlank(StrUtil.toString(start))?0:start;
-//        	limit=StrUtil.isBlank(StrUtil.toString(limit))?10:start;
-        	rows=salesInfoService.page(new Page(0,10), queryWrapper);
-        	result=new CommonResult();
+        	rows=salesInfoService.page(new Page(pageStart,pageLimit), queryWrapper);
         	
-        	SalesInfo info=new SalesInfo();
-        	QryDataInfo dto=new QryDataInfo();
-        	BeanUtil.copyProperties(info,dto,"serialVersionUID");
-        	dto.setFlag(true);
-        	log.info("dto:"+rows.getRecords());
-        	System.out.println("dto:"+dto.toString());
+        	QueryWrapper qw1 =new QueryWrapper();
+        	qw1.ge(true, "sale_lvl", "1");
+        	List<Map<String, Object>> listMaps = salesInfoService.listMaps(qw1);
+        	
+        	for (SalesInfo map : rows.getRecords()) {
+				String pid=map.getMbSalePid();
+				for (Map<String, Object> map2 : listMaps) {
+					String saleId=Convert.toStr(map2.get("mb_sale_id"));
+					if(!StrUtil.isBlank(saleId)&&saleId.equals(pid)) {
+						map.setPmapMess(map2);
+					}
+				}
+			}
         	result.setData(rows);
         	
-        	
-
-		
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setMessage(e.getMessage());
+			log.info("查询异常",e);
+		}
     	
     	return result;
     }
     
-    @RequestMapping("qryOne")
-    public List qryOne() {
-    	logger.info("销售的手机号不能为空，请重新输入！");
-    	return salesInfoService.qryOne();
+    @ApiOperation(value="编辑销售成员",notes="编辑销售成员")
+    @RequestMapping("editSalesMb")
+    public CommonResult editSalesMb(@RequestBody SalesInfo salesInfo){
+    	CommonResult result=new CommonResult();
+    	try {
+    		// 检验获取当前登录人
+        	String acct_id="";
+        	String mb_sale_pid=salesInfo.getMbSalePid();
+        	String path="";
+        	String sale_id=salesInfo.getMbSaleId();
+        	
+        	int lvl=2;
+        	if(StrUtil.isBlank(salesInfo.getMbSalePhone())) {
+        		logger.info("销售的手机号不能为空，请重新输入！");
+        		return result;
+        	}
+        	if(!StrUtil.isBlank(mb_sale_pid)) {
+        		// 上级不为空时,检验是否存在上级编号
+        		QueryWrapper queryWrapper =new QueryWrapper();
+        		queryWrapper.eq("mb_sale_id", mb_sale_pid);
+        		SalesInfo salesOne = salesInfoService.getOne(queryWrapper);
+        		if(null==salesOne) {
+        			log.info("上级销售不存在，请重新输入！");
+        			result.setMessage("上级销售不存在，请重新输入");
+        			result.setCode(500);
+        			return result;
+        		}
+        		path=salesOne.getSalePath()+"."+sale_id;
+        		lvl=Integer.parseInt(salesOne.getSaleLvl())-1;// 等级必须低于上级一级
+        		if(lvl<0) {
+        			log.info("修改异常，等级异常");
+        			result.setMessage("修改异常，等级异常");
+        			result.setCode(500);
+        			return result;
+        		}
+        	}else {
+        		path=sale_id;
+        		
+        	}
+        	
+        	salesInfo.setSalePath(path);
+        	salesInfo.setSaleLvl(Convert.toStr(lvl));
+        	
+        	salesInfo.setMdfDt(DateUtil.formatDateTime(new Date()));// 修改时间
+        	salesInfo.setMdfAcct(acct_id);// 修改人
+        	
+        	QueryWrapper qw =new QueryWrapper();
+        	qw.eq("sale_id", sale_id);
+        	salesInfoService.update(qw);
+        	
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setMessage(e.toString()+":修改异常");
+			result.setCode(500);
+			log.info("修改异常");
+			
+			return result;
+		}
+    	
+    	return result;
+    }
+    
+    @ApiOperation(value="获取销售详情",notes="获取销售详情")
+    @RequestMapping("qrySalesInfoDtl")
+    public CommonResult qrySalesInfoDtl(@RequestParam(value="salesId",required = true) String salesId){
+    	CommonResult result=new CommonResult();
+    	try {
+    		
+    		QueryWrapper qw=new QueryWrapper<>();
+    		qw.eq("mb_sale_id", salesId);
+    		Map<String,Object> map=salesInfoService.getMap(qw);
+    		String pid=Convert.toStr(map.get("mb_sale_pid"));
+    		if(!StrUtil.isBlank(pid)) {
+    			QueryWrapper qw1=new QueryWrapper<>();
+    			qw1.eq("mb_sale_id", pid);
+    			Map<String,Object> map_p=salesInfoService.getMap(qw1);
+    			map.put("pmapMess", map_p);
+    		}
+    		result.setData(map);
+    		
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setMessage(e.getMessage()+"获取详情异常");
+			result.setCode(500);
+			log.info("获取详情异常");
+			
+			return result;
+		}
+    	
+    	return result;
     }
     
     
-    public static void main(String[] args) {
-		System.out.println(Convert.toStr(""));
-	}
-    
+    @ApiOperation(value="删除销售",notes="删除销售")
+    @RequestMapping("delSalesInfo")
+    public CommonResult delSalesInfo(@RequestParam(value="salesId",required = true) String salesId){
+    	CommonResult result=new CommonResult();
+    	try {
+    		// 获取当前登录人
+    		String acct_id="";
+    		QueryWrapper qw=new QueryWrapper<>();
+    		qw.eq("mb_sale_id", salesId);
+    		SalesInfo salesInfo=new SalesInfo();
+    		salesInfo.setMdfDt(DateUtil.formatDateTime(new Date()));// 修改时间
+        	salesInfo.setMdfAcct(acct_id);// 修改人
+        	salesInfo.setSaleStatus("1");
+    		salesInfoService.update(salesInfo, qw);
+    		
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setMessage(e.getMessage()+"删除异常");
+			result.setCode(500);
+			log.info("删除异常");
+			
+			return result;
+		}
+    	
+    	return result;
+    }
+   
 }

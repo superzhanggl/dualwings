@@ -14,6 +14,4 @@ import com.dualwings.sales.po.SalesInfo;
 @Repository
 public interface SalesInfoMapper extends BaseMapper<SalesInfo> {
 	
-	@Select("select * from sys_sale_info")
-	public List<SalesInfo> qryOne();
 }

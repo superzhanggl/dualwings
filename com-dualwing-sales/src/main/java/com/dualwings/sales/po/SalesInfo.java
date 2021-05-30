@@ -1,13 +1,13 @@
 package com.dualwings.sales.po;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -55,5 +55,7 @@ public class SalesInfo implements Serializable{/**
 	private String remark; // 备注
 	
 	private String extraTxt; // 拓展字段
+	@TableField(exist = false)
+	private Map<String,Object> pmapMess;
 
 }

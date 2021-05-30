@@ -13,12 +13,6 @@ import com.dualwings.sales.service.SalesInfoService;
 public class SalesInfoServiceImpl extends ServiceImpl<SalesInfoMapper,SalesInfo> implements SalesInfoService {
 	@Autowired
 	private SalesInfoMapper salesInfoMapper;
-
-	@Override
-	public List qryOne() {
-		// TODO Auto-generated method stub
-		return salesInfoMapper.qryOne();
-	}
 	
 	
 
