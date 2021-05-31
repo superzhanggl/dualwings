@@ -9,4 +9,16 @@
   <artifactId>com-dualwings-common</artifactId>
   <name>com-dualwings-common</name>
   <description>common</description>
+  <dependencies>
+  	<dependency>
+		    <groupId>cn.hutool</groupId>
+		    <artifactId>hutool-all</artifactId>
+		    <version>5.5.2</version>
+  	</dependency>
+  	<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>compile</scope>
+     </dependency>
+  </dependencies>
 </project>

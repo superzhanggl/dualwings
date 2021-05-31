@@ -21,8 +21,12 @@ import com.dualwings.basic.service.SysRoleService;
 import com.dualwings.common.utils.SnowFlake;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -39,13 +43,21 @@ public class SysRoleController {
 	private SysRoleMenuMapper sysRoleMenuMapper;
 	
 
-	
-	public CommonResult<IPage<SysRole>> qryRoleList() {
+	@ApiOperation(value="查询角色列表",notes="查询角色列表")
+	@ApiImplicitParams(value={
+    		 @ApiImplicitParam(value = "查询起始页码",name ="start" ),
+    		 @ApiImplicitParam(value = "查询数量",name ="limit" )
+    })
+    @RequestMapping("qryRoleList")
+	public CommonResult<IPage<SysRole>> qryRoleList(@RequestParam(value="start",required = false) String start,
+			@RequestParam(value="start",required = false) String limit) {
 		CommonResult<IPage<SysRole>> commonResult=new CommonResult<IPage<SysRole>>();
 		try {
+			int pageStart=StrUtil.isBlank(start)?0:NumberUtil.parseInt(start);
+        	int pageLimit=StrUtil.isBlank(limit)?10:NumberUtil.parseInt(limit);
 			QueryWrapper<SysRole> qw=new QueryWrapper<SysRole>();
 			qw.notLike("role_id", "admin");
-			IPage<SysRole> rows = sysRoleService.page(new Page(0,10), qw);
+			IPage<SysRole> rows = sysRoleService.page(new Page(pageStart,pageLimit), qw);
 			commonResult.setData(rows);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -56,7 +68,16 @@ public class SysRoleController {
 		}
 		return commonResult;
 	}
-	
+	@ApiOperation(value="编辑角色",notes="编辑角色")
+	@ApiImplicitParams(value={
+    		 @ApiImplicitParam(value = "角色编号",name ="roleId"),
+    		 @ApiImplicitParam(value = "角色用途，0-运营端，1-app",name ="type"),
+    		 @ApiImplicitParam(value = "是否启用，0-启用，1-停用",name ="status"),
+    		 @ApiImplicitParam(value = "备注",name ="remark"),
+    		 @ApiImplicitParam(value = "描述",name ="roleDesc"),
+    		 @ApiImplicitParam(value = "角色名称",name ="roleNm")
+    })
+    @RequestMapping("editRole")
 	public CommonResult editRole(SysRole sysRole) {
 		CommonResult commonResult=new CommonResult();
 		try {
@@ -95,7 +116,15 @@ public class SysRoleController {
 		}
 		return commonResult;
 	}
-	
+	@ApiOperation(value="添加角色",notes="添加角色")
+	@ApiImplicitParams(value={
+    		 @ApiImplicitParam(value = "角色用途，0-运营端，1-app",name ="type"),
+    		 @ApiImplicitParam(value = "是否启用，0-启用，1-停用",name ="status"),
+    		 @ApiImplicitParam(value = "备注",name ="remark"),
+    		 @ApiImplicitParam(value = "描述",name ="roleDesc"),
+    		 @ApiImplicitParam(value = "角色名称",name ="roleNm")
+    })
+	@RequestMapping("appendRole")
 	public CommonResult appendRole(SysRole sysRole) {
 		CommonResult commonResult=new CommonResult();
 		try {
@@ -127,7 +156,11 @@ public class SysRoleController {
 		return commonResult;
 	}
 	
-	
+	@ApiOperation(value="删除角色",notes="删除角色")
+	@ApiImplicitParams(value={
+    		 @ApiImplicitParam(value = "角色编号字符串,多个编号以逗号隔开",name ="roleIds")
+    })
+	@RequestMapping("delRole")
 	public CommonResult delRole(@RequestParam(value="roleIds") String roleIds) {
 		CommonResult commonResult=new CommonResult();
 		try {
@@ -155,8 +188,15 @@ public class SysRoleController {
 		}
 		return commonResult;
 	}
-	
-	public CommonResult bindMenutoRole(@RequestParam(value="roleId") String roleId,@RequestParam(value="newMenuIds")String newMenuIds,
+	@ApiOperation(value="角色绑定菜单",notes="角色绑定菜单")
+	@ApiImplicitParams(value={
+    		 @ApiImplicitParam(value = "角色编号",name ="roleId"),
+    		 @ApiImplicitParam(value = "新增绑定菜单,多个菜单以逗号隔开",name ="newMenuIds"),
+    		 @ApiImplicitParam(value = "删除绑定菜单,多个菜单以逗号隔开",name ="delMenuIds")
+    })
+	@RequestMapping("bindMenutoRole")
+	public CommonResult bindMenutoRole(@RequestParam(value="roleId") String roleId,
+			@RequestParam(value="newMenuIds")String newMenuIds,
 			@RequestParam(value="delMenuIds")String delMenuIds) {
 		CommonResult commonResult=new CommonResult();
 		try {
@@ -207,7 +247,13 @@ public class SysRoleController {
 		}
 		return commonResult;
 	}
-	
+	@ApiOperation(value="角色绑定菜单",notes="角色绑定菜单")
+	@ApiImplicitParams(value={
+    		 @ApiImplicitParam(value = "角色编号",name ="roleId"),
+    		 @ApiImplicitParam(value = "新增绑定菜单,多个菜单以逗号隔开",name ="newMenuIds"),
+    		 @ApiImplicitParam(value = "删除绑定菜单,多个菜单以逗号隔开",name ="delMenuIds")
+    })
+	@RequestMapping("bindMenutoRole")
 	public CommonResult getRoleBindMenu(@RequestParam(value="roleId") String roleId) {
 		
 		CommonResult commonResult=new CommonResult();
