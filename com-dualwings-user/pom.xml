@@ -108,19 +108,7 @@
 			      <groupId>junit</groupId>
 			      <artifactId>junit</artifactId>
 		    </dependency>
-        	
-        	<!--swagger 依赖-->
-			<!--  swagger start-->
-	        <dependency>
-	            <groupId>io.springfox</groupId>
-	            <artifactId>springfox-swagger2</artifactId>
-	            <version>2.9.0</version>
-	        </dependency>
-	        <dependency>
-	            <groupId>io.springfox</groupId>
-	            <artifactId>springfox-swagger-ui</artifactId>
-	            <version>2.9.0</version>
-	        </dependency>
+
 	        <!-- 解决FluentIterable.class找不到问题 -->
 	        <dependency>
 	            <groupId>com.google.guava</groupId>
@@ -139,11 +127,6 @@
 				<artifactId>spring-boot-devtools</artifactId>
 				<optional>true</optional>
 			</dependency>
-		<dependency>
-		    <groupId>cn.hutool</groupId>
-		    <artifactId>hutool-all</artifactId>
-		    <version>5.5.2</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.dualwings.common</groupId>
