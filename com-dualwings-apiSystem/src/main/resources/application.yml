@@ -1,6 +1,15 @@
 server:
   port: 3010
-
+  servlet:
+    # 应用的访问路径
+    context-path: /api
+    tomcat:
+      # tomcat的URI编码
+      uri-encoding: UTF-8
+      # tomcat最大线程数，默认为200
+      max-threads: 800
+      # Tomcat启动初始化的线程数，默认值25
+      min-spare-threads: 30
 
 spring:
   application:
@@ -8,9 +17,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/dysalesystem?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://112.74.68.92:3306/dysystem?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
     username: root
-    password: 123456
+    password: dualwings0522
   cloud:
     nacos:
       discovery:
