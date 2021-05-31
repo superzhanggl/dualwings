@@ -1,7 +1,0 @@
-com\dualwings\user\config\MybatisPlusConfig.class
-com\dualwings\user\po\User.class
-com\dualwings\user\dao\UserMapper.class
-com\dualwings\user\config\NacosConfig.class
-com\dualwings\user\service\UserService.class
-com\dualwings\user\Application.class
-com\dualwings\user\controller\UserController.class
