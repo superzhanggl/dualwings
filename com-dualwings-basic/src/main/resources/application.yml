@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://112.74.68.92:3306/dysystem?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
     username: root
-    password: 123456
+    password: dualwings0522
 #  cloud:
 #    nacos:
 #      discovery:

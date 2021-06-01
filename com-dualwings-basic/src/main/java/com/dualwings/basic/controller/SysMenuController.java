@@ -3,7 +3,10 @@ package com.dualwings.basic.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dualwings.basic.domain.entity.SysRole;
+import com.dualwings.basic.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +29,9 @@ public class SysMenuController {
 	
 	@Autowired
 	private SysMenuService sysMenuService;
-	
+	@Autowired
+	private SysRoleService sysRoleService;
+
 	/**
 	 * 获取菜单树结构
 	 * @param useChnl

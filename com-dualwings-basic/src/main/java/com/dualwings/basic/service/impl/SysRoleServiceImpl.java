@@ -10,6 +10,7 @@ import com.dualwings.basic.service.SysRoleService;
 
 @Service("sysRoleService")
 public  class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper,SysRole> implements SysRoleService {
+
 	@Autowired
 	private SysRoleMapper sysRoleMapper;
 

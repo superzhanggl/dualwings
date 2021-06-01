@@ -188,97 +188,97 @@ public class SysRoleController {
 		}
 		return commonResult;
 	}
-	@ApiOperation(value="角色绑定菜单",notes="角色绑定菜单")
-	@ApiImplicitParams(value={
-    		 @ApiImplicitParam(value = "角色编号",name ="roleId"),
-    		 @ApiImplicitParam(value = "新增绑定菜单,多个菜单以逗号隔开",name ="newMenuIds"),
-    		 @ApiImplicitParam(value = "删除绑定菜单,多个菜单以逗号隔开",name ="delMenuIds")
-    })
-	@RequestMapping("bindMenutoRole")
-	public CommonResult bindMenutoRole(@RequestParam(value="roleId") String roleId,
-			@RequestParam(value="newMenuIds")String newMenuIds,
-			@RequestParam(value="delMenuIds")String delMenuIds) {
-		CommonResult commonResult=new CommonResult();
-		try {
-			String acct_id="";// 当前登录人
-			if(StrUtil.isBlank(roleId)) {
-				commonResult.setCode(500);
-				commonResult.setMessage("异常，角色编号不能为空");
-				return commonResult;
-			}
-			if(StrUtil.isBlank(newMenuIds)|| StrUtil.isBlank(delMenuIds)) {
-				commonResult.setCode(500);
-				commonResult.setMessage("异常，菜单编号不能为空");
-				return commonResult;
-			}
-			// 删除
-			String[] delMenuIds_limit=delMenuIds.split(",");
-			QueryWrapper<SysRoleMenu> qw=new QueryWrapper<SysRoleMenu>();
-			qw.eq("sys_role_id", roleId);
-			qw.in("sys_meun_id", delMenuIds_limit);
-			if(delMenuIds_limit.length>0) {
-				sysRoleMenuService.remove(qw);
-			}
-			
-			// 添加
-			String[] menuId_limit=newMenuIds.split(",");
-			String dateTime=DateUtil.formatDateTime(new Date());
-			List<SysRoleMenu> params=new ArrayList<SysRoleMenu>();
-			for (String str : menuId_limit) {
-				if(StrUtil.isBlank(str)) {
-					SysRoleMenu sysRoleMenu=new SysRoleMenu();
-					sysRoleMenu.setSysRoleId(roleId);
-					sysRoleMenu.setSysMeunId(str);
-					sysRoleMenu.setCrtAcct(acct_id);
-					sysRoleMenu.setCrtDt(dateTime);
-					params.add(sysRoleMenu);
-				}
-			}
-			if(params.size()>0) {
-				sysRoleMenuService.saveBatch(params);
-			}
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			commonResult.setCode(500);
-			commonResult.setMessage("授权异常"+e.getMessage());
-			return commonResult;
-			
-		}
-		return commonResult;
-	}
-	@ApiOperation(value="角色绑定菜单",notes="角色绑定菜单")
-	@ApiImplicitParams(value={
-    		 @ApiImplicitParam(value = "角色编号",name ="roleId"),
-    		 @ApiImplicitParam(value = "新增绑定菜单,多个菜单以逗号隔开",name ="newMenuIds"),
-    		 @ApiImplicitParam(value = "删除绑定菜单,多个菜单以逗号隔开",name ="delMenuIds")
-    })
-	@RequestMapping("bindMenutoRole")
-	public CommonResult getRoleBindMenu(@RequestParam(value="roleId") String roleId) {
-		
-		CommonResult commonResult=new CommonResult();
-		try {
-			if(StrUtil.isBlankIfStr(roleId)) {
-				commonResult.setCode(500);
-				commonResult.setMessage("异常，角色编号不能为空");
-				return commonResult;
-			}
-			
-			QueryWrapper qw=new QueryWrapper();
-			qw.select("sys_meun_id");
-			qw.eq("sys_role_id", roleId);
-			List rows=sysRoleMenuMapper.selectList(qw);
-			
-			commonResult.setData(rows);	
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			commonResult.setCode(500);
-			commonResult.setMessage("异常"+e.getMessage());
-			return commonResult;
-		}
-		
-		return commonResult;
-	}
+//	@ApiOperation(value="角色绑定菜单",notes="角色绑定菜单")
+//	@ApiImplicitParams(value={
+//    		 @ApiImplicitParam(value = "角色编号",name ="roleId"),
+//    		 @ApiImplicitParam(value = "新增绑定菜单,多个菜单以逗号隔开",name ="newMenuIds"),
+//    		 @ApiImplicitParam(value = "删除绑定菜单,多个菜单以逗号隔开",name ="delMenuIds")
+//    })
+//	@RequestMapping("bindMenutoRole")
+//	public CommonResult bindMenutoRole(@RequestParam(value="roleId") String roleId,
+//			@RequestParam(value="newMenuIds")String newMenuIds,
+//			@RequestParam(value="delMenuIds")String delMenuIds) {
+//		CommonResult commonResult=new CommonResult();
+//		try {
+//			String acct_id="";// 当前登录人
+//			if(StrUtil.isBlank(roleId)) {
+//				commonResult.setCode(500);
+//				commonResult.setMessage("异常，角色编号不能为空");
+//				return commonResult;
+//			}
+//			if(StrUtil.isBlank(newMenuIds)|| StrUtil.isBlank(delMenuIds)) {
+//				commonResult.setCode(500);
+//				commonResult.setMessage("异常，菜单编号不能为空");
+//				return commonResult;
+//			}
+//			// 删除
+//			String[] delMenuIds_limit=delMenuIds.split(",");
+//			QueryWrapper<SysRoleMenu> qw=new QueryWrapper<SysRoleMenu>();
+//			qw.eq("sys_role_id", roleId);
+//			qw.in("sys_meun_id", delMenuIds_limit);
+//			if(delMenuIds_limit.length>0) {
+//				sysRoleMenuService.remove(qw);
+//			}
+//
+//			// 添加
+//			String[] menuId_limit=newMenuIds.split(",");
+//			String dateTime=DateUtil.formatDateTime(new Date());
+//			List<SysRoleMenu> params=new ArrayList<SysRoleMenu>();
+//			for (String str : menuId_limit) {
+//				if(StrUtil.isBlank(str)) {
+//					SysRoleMenu sysRoleMenu=new SysRoleMenu();
+//					sysRoleMenu.setSysRoleId(roleId);
+//					sysRoleMenu.setSysMeunId(str);
+//					sysRoleMenu.setCrtAcct(acct_id);
+//					sysRoleMenu.setCrtDt(dateTime);
+//					params.add(sysRoleMenu);
+//				}
+//			}
+//			if(params.size()>0) {
+//				sysRoleMenuService.saveBatch(params);
+//			}
+//
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			commonResult.setCode(500);
+//			commonResult.setMessage("授权异常"+e.getMessage());
+//			return commonResult;
+//
+//		}
+//		return commonResult;
+//	}
+//	@ApiOperation(value="角色绑定菜单",notes="角色绑定菜单")
+//	@ApiImplicitParams(value={
+//    		 @ApiImplicitParam(value = "角色编号",name ="roleId"),
+//    		 @ApiImplicitParam(value = "新增绑定菜单,多个菜单以逗号隔开",name ="newMenuIds"),
+//    		 @ApiImplicitParam(value = "删除绑定菜单,多个菜单以逗号隔开",name ="delMenuIds")
+//    })
+//	@RequestMapping("bindMenutoRole")
+//	public CommonResult getRoleBindMenu(@RequestParam(value="roleId") String roleId) {
+//
+//		CommonResult commonResult=new CommonResult();
+//		try {
+//			if(StrUtil.isBlankIfStr(roleId)) {
+//				commonResult.setCode(500);
+//				commonResult.setMessage("异常，角色编号不能为空");
+//				return commonResult;
+//			}
+//
+//			QueryWrapper qw=new QueryWrapper();
+//			qw.select("sys_meun_id");
+//			qw.eq("sys_role_id", roleId);
+//			List rows=sysRoleMenuMapper.selectList(qw);
+//
+//			commonResult.setData(rows);
+//
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			commonResult.setCode(500);
+//			commonResult.setMessage("异常"+e.getMessage());
+//			return commonResult;
+//		}
+//
+//		return commonResult;
+//	}
 	
 }

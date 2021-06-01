@@ -2,6 +2,8 @@ package com.dualwings.basic.domain.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.AllArgsConstructor;
@@ -16,6 +18,8 @@ public class SysRole implements Serializable{/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	@TableId(value = "role_id", type = IdType.AUTO)
 	private String roleId;// 角色编号
 	private String roleNm;// 角色名称
 	private String roleDesc;// 角色描述
