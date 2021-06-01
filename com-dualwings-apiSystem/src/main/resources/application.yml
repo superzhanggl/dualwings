@@ -30,21 +30,5 @@ spring:
     port: 6379
         
 
-  mybatis:
-    mapperLocations: classpath:mapper/*.xml
-    #type-aliases-package: com.dualwings.sales.pro  #可用可不用
-    configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-# REDIS (RedisProperties)
-
- 
-#spring.redis.jedis.pool.max-active=8
-#spring.redis.jedis.pool.max-wait=-1
-#spring.redis.jedis.pool.max-idle=8
-#spring.redis.jedis.pool.min-idle=0
-#spring.redis.timeout=5000
-
-
-  #注册中心的选择
 
 

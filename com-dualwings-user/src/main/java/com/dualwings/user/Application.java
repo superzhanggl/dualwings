@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan({"com.dualwings.user"})
-@MapperScan({"com.dualwings.user.dao"})
+@MapperScan({"com.dualwings.user.mapper"})
 //@EnableFeignClients
 public class Application {
 

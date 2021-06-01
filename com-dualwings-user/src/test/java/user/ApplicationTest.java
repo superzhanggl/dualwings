@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @EnableFeignClients
 @ComponentScan({"com.dualwings.user"})
-@MapperScan({"com.dualwings.user.dao"})
+@MapperScan({"com.dualwings.user.mapper"})
 public class ApplicationTest {
 
     public static void main(String[] args) {

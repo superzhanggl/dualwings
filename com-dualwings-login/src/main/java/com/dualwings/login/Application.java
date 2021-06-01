@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan({"com.dualwings.login.*"})
-//@MapperScan({"com.dualwings.basic.dao","com.dualwings.basic.dto","com.dualwings.basic.utils","com.dualwings.basic.config"})
+//@MapperScan({"com.dualwings.basic.mapper","com.dualwings.basic.dto","com.dualwings.basic.utils","com.dualwings.basic.config"})
 //@EnableFeignClients
 //@NacosPropertySource(dataId = "boot-user-service", autoRefreshed = true)
 //@EnableDiscoveryClient

@@ -1,4 +1,4 @@
-package com.dualwings.basic.dto;
+package com.dualwings.common.domain.entity;
 
 import java.io.Serializable;
 

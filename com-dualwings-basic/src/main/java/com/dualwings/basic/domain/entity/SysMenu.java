@@ -1,9 +1,11 @@
-package com.dualwings.basic.po;
+package com.dualwings.basic.domain.entity;
 
 import java.io.Serializable;
 import java.util.List;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.AllArgsConstructor;
@@ -14,10 +16,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("sys_menu")
-public class SysMenu implements Serializable{/**
-	 * 
-	 */
+public class SysMenu implements Serializable{
+
 	private static final long serialVersionUID = 1L;
+
+	@TableId(value = "id", type = IdType.AUTO)
 	private String menuId;// 菜单编号
 	private String menuCode;// 菜单操作码
 	private String menuNm;// 菜单名称
@@ -31,6 +34,8 @@ public class SysMenu implements Serializable{/**
 	private String mdfAcct;// 修改人
 	private String mdfDt;// 修改时间
 	private String extraTxt;// 拓展字段
+
+
 	@TableField(exist = false)
 	private List<SysMenu> children;// 子菜单
 		

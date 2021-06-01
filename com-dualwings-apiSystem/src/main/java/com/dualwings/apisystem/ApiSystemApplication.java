@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 //@EnableAutoConfiguration
 //@ComponentScan({"com.dualwings.apisystem.*"})
-//@MapperScan({"com.dualwings.apisystem.dao","com.dualwings.apisystem.dto","com.dualwings.apisystem.utils","com.dualwings.apisystem.config"})
+//@MapperScan({"com.dualwings.apisystem.mapper","com.dualwings.apisystem.dto","com.dualwings.apisystem.utils","com.dualwings.apisystem.config"})
 //@EnableFeignClients
 //@NacosPropertySource(dataId = "boot-user-service", autoRefreshed = true)
 //@EnableDiscoveryClient

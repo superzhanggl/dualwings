@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableAutoConfiguration
 //@ComponentScan({"com.dualwings.sales.*"})
-//@MapperScan({"com.dualwings.sales.dao","com.dualwings.sales.dto","com.dualwings.sales.utils","com.dualwings.sales.config"})
+//@MapperScan({"com.dualwings.sales.mapper","com.dualwings.sales.dto","com.dualwings.sales.utils","com.dualwings.sales.config"})
 //@EnableFeignClients
 //@NacosPropertySource(dataId = "boot-user-service", autoRefreshed = true)
 @EnableDiscoveryClient

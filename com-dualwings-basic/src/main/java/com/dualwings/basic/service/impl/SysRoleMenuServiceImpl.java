@@ -1,11 +1,11 @@
-package com.dualwings.basic.serviceImpl;
+package com.dualwings.basic.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.dualwings.basic.dao.SysRoleMenuMapper;
-import com.dualwings.basic.po.SysRoleMenu;
+import com.dualwings.basic.mapper.SysRoleMenuMapper;
+import com.dualwings.basic.domain.entity.SysRoleMenu;
 import com.dualwings.basic.service.SysRoleMenuService;
 
 @Service("sysRoleMenuService")

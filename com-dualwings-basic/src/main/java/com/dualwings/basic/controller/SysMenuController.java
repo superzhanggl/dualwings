@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.dualwings.basic.dto.CommonResult;
-import com.dualwings.basic.po.SysMenu;
+import com.dualwings.common.domain.entity.CommonResult;
+import com.dualwings.basic.domain.entity.SysMenu;
 import com.dualwings.basic.service.SysMenuService;
 
 import cn.hutool.core.util.StrUtil;
