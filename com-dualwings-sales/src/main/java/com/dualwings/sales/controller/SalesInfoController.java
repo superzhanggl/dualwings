@@ -49,6 +49,12 @@ public class SalesInfoController {
     private static Logger  logger=Logger.getLogger(SalesInfoController.class);
     
 	@ApiOperation(value="添加销售成员",notes="添加销售成员")
+	@ApiImplicitParams(value={
+    		@ApiImplicitParam(value = "上级销售父编号",name ="mbSalePid" ),	
+    		@ApiImplicitParam(value = "sales名称",name ="mbSaleNm" ),	
+    		@ApiImplicitParam(value = "sales手机",name ="mbSalePhone" ),	
+    		@ApiImplicitParam(value = "sale状态:0-正常，1-黑名单",name ="saleStatus" )
+    })
     @RequestMapping("appendSalesMb")
     public boolean appendSalesMb(@RequestBody SalesInfo salesInfo){
     	try {
@@ -92,7 +98,7 @@ public class SalesInfoController {
         	String crt_dt=DateUtil.formatDateTime(new Date());// 创建时间
         	String crt_acct=acct_id;
         	salesInfo.setCrtAcct(crt_acct);// 创建人
-        	salesInfo.setSaleStatus("0");// 状态
+        	//salesInfo.setSaleStatus("0");// 状态
         	salesInfo.setCrtDt(crt_dt);
         	salesInfoService.save(salesInfo);
         	
