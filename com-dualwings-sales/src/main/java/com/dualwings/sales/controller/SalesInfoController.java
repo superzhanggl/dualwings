@@ -21,9 +21,9 @@ import org.springframework.web.client.RestTemplate;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.dualwings.common.domain.entity.CommonResult;
 import com.dualwings.common.utils.SnowFlake;
-import com.dualwings.sales.dto.CommonResult;
-import com.dualwings.sales.po.SalesInfo;
+import com.dualwings.sales.domain.entity.SalesInfo;
 import com.dualwings.sales.service.SalesInfoService;
 
 import cn.hutool.core.convert.Convert;

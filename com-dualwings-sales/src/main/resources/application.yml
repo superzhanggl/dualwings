@@ -21,11 +21,10 @@ spring:
 #    port: 6379
         
 
-  mybatis:
-    mapperLocations: classpath:mapper/*.xml
-    type-aliases-package: com.dualwings.sales.pro  #可用可不用
-    configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.dualwings.sales.domain.entity
 # REDIS (RedisProperties)
 
  

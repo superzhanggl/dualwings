@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SpringConfig {
-	//@Autowired
+	@Autowired
 	private RedisTemplate redisTemplate;
 	/**
 	 * 修改redis的key和value序列化方式
 	 * @param redisTemplate
 	 */
-	@Autowired(required = false)
+	//@Autowired(required = false)
 	public void setRedisTemplate(RedisTemplate redisTemplate) {
 	    RedisSerializer stringSerializer = new StringRedisSerializer();
 	    redisTemplate.setKeySerializer(stringSerializer);

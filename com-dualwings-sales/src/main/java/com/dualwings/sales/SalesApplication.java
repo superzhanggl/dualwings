@@ -9,15 +9,21 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan({"com.dualwings.sales.*"})
-@MapperScan({"com.dualwings.sales.mapper","com.dualwings.sales.dto","com.dualwings.sales.utils","com.dualwings.sales.config"})
+@MapperScan({"com.dualwings.sales.mapper"})
 //@EnableFeignClients
 //@NacosPropertySource(dataId = "boot-user-service", autoRefreshed = true)
 //@EnableDiscoveryClient
-public class Application {
+public class SalesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(SalesApplication.class,args);
+        System.out.println("(♥◠‿◠)ﾉﾞ  sales模块启动成功   ლ(´ڡ`ლ)ﾞ " +
+                "\n" +
+                " SSS  U   U  CCC  CCC EEEE  SSS   SSS  \n" +
+                "S     U   U C    C    E    S     S     \n" +
+                " SSS  U   U C    C    EEE   SSS   SSS  \n" +
+                "    S U   U C    C    E        S     S \n" +
+                "SSSS   UUU   CCC  CCC EEEE SSSS  SSSS ");
     }
 
 }
