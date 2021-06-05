@@ -2,6 +2,7 @@ package com.dualwings.sales.controller;
 
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +40,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-//@FeignClient
 @Api(tags="销售管理")
 @RequestMapping("sales")
 public class SalesInfoController {
@@ -49,8 +50,15 @@ public class SalesInfoController {
     private static Logger  logger=Logger.getLogger(SalesInfoController.class);
     
 	@ApiOperation(value="添加销售成员",notes="添加销售成员")
+	@ApiImplicitParams(value={
+    		@ApiImplicitParam(value = "上级销售父编号",name ="mbSalePid" ),	
+    		@ApiImplicitParam(value = "sales名称",name ="mbSaleNm" ),	
+    		@ApiImplicitParam(value = "sales手机",name ="mbSalePhone" ),	
+    		@ApiImplicitParam(value = "sale状态:0-正常，1-黑名单",name ="saleStatus" )
+    })
     @RequestMapping("appendSalesMb")
-    public boolean appendSalesMb(@RequestBody SalesInfo salesInfo){
+    public CommonResult appendSalesMb(@RequestBody SalesInfo salesInfo){
+		CommonResult resp=new CommonResult();
     	try {
     		// 检验获取当前登录人
         	String acct_id="";
@@ -65,14 +73,18 @@ public class SalesInfoController {
         		queryWrapper.eq("mb_sale_id", mb_sale_pid);
         		SalesInfo salesPone = salesInfoService.getOne(queryWrapper);
         		if(null==salesPone) {
-        			System.out.println("上级销售不存在，请重新输入！");
-        			return false;
+        			logger.info("appendSalesMb-err-001:上级销售不存在，请重新输入！");
+        			resp.setCode(500);
+        			resp.setMessage("appendSalesMb-err-001:上级销售不存在，请重新输入！");
+        			return resp;
         		}
         		path=salesPone.getSalePath()+"."+sale_id;
         		lvl=Integer.parseInt(salesPone.getSaleLvl())-1;// 等级必须低于上级一级
         		if(lvl<0) {
-        			System.out.println("等级异常");
-        			return false;
+        			logger.info("appendSalesMb-err-002:新增成员的等级异常");
+        			resp.setCode(500);
+        			resp.setMessage("appendSalesMb-err-002:新增成员的等级异常");
+        			return resp;
         		}
         	}else {
         		path=sale_id;
@@ -84,25 +96,29 @@ public class SalesInfoController {
         	salesInfo.setSaleLvl(Convert.toStr(lvl));
         	
         	if(StrUtil.isBlank(salesInfo.getMbSalePhone())) {
-        		logger.info("销售的手机号不能为空，请重新输入！");
-        		return false;
+        		logger.info("appendSalesMb-err-003:销售的手机号不能为空，请重新输入！");
+        		resp.setCode(500);
+    			resp.setMessage("appendSalesMb-err-003:销售的手机号不能为空，请重新输入！");
+    			return resp;
         	}
         	
         	
         	String crt_dt=DateUtil.formatDateTime(new Date());// 创建时间
         	String crt_acct=acct_id;
         	salesInfo.setCrtAcct(crt_acct);// 创建人
-        	salesInfo.setSaleStatus("0");// 状态
+        	//salesInfo.setSaleStatus("0");// 状态
         	salesInfo.setCrtDt(crt_dt);
         	salesInfoService.save(salesInfo);
         	
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println(e.getMessage());
-			return false;
+			logger.info("appendSalesMb-err:添加异常",e);
+    		resp.setCode(500);
+			resp.setMessage("appendSalesMb-err:添加异常"+e.getMessage());
+			return resp;
 		}
     	
-    	return true;
+    	return resp;
     }
     
 	@ApiOperation(value="销售成员列表查询",notes="销售成员列表查询")
@@ -167,7 +183,8 @@ public class SalesInfoController {
         	
 		} catch (Exception e) {
 			// TODO: handle exception
-			result.setMessage(e.getMessage());
+			result.setCode(500);
+			result.setMessage("查询异常"+e.getMessage());
 			log.info("查询异常",e);
 		}
     	
@@ -175,6 +192,13 @@ public class SalesInfoController {
     }
     
     @ApiOperation(value="编辑销售成员",notes="编辑销售成员")
+    @ApiImplicitParams(value={
+   		 @ApiImplicitParam(value = "sales名称",name ="mbSaleNm" ),	
+   		 @ApiImplicitParam(value = "sales手机",name ="mbSalePhone" ),	
+   		 @ApiImplicitParam(value = "sale状态:0-正常，1-黑名单",name ="saleStatus" ),	
+   		 @ApiImplicitParam(value = "上级销售编号",name ="mbSalePid" ),
+   		 @ApiImplicitParam(value = "销售编号",name ="mbSaleId" )
+    })
     @RequestMapping("editSalesMb")
     public CommonResult editSalesMb(@RequestBody SalesInfo salesInfo){
     	CommonResult result=new CommonResult();
@@ -226,9 +250,9 @@ public class SalesInfoController {
         	
 		} catch (Exception e) {
 			// TODO: handle exception
-			result.setMessage(e.toString()+":修改异常");
+			result.setMessage("修改异常"+e.getMessage());
 			result.setCode(500);
-			log.info("修改异常");
+			log.info("修改异常",e);
 			
 			return result;
 		}
@@ -236,7 +260,8 @@ public class SalesInfoController {
     	return result;
     }
     
-    @ApiOperation(value="获取销售详情",notes="获取销售详情")
+    @ApiOperation(value="获取销售详情",notes="获取销售详情,如果有上级销售,将返回数据")
+    @ApiImplicitParam(value = "销售编号",name ="mbSaleId" )
     @RequestMapping("qrySalesInfoDtl")
     public CommonResult qrySalesInfoDtl(@RequestParam(value="salesId",required = true) String salesId){
     	CommonResult result=new CommonResult();
@@ -258,8 +283,7 @@ public class SalesInfoController {
 			// TODO: handle exception
 			result.setMessage(e.getMessage()+"获取详情异常");
 			result.setCode(500);
-			log.info("获取详情异常");
-			
+			log.info("获取详情异常",e);
 			return result;
 		}
     	
@@ -268,6 +292,7 @@ public class SalesInfoController {
     
     
     @ApiOperation(value="删除销售",notes="删除销售")
+    @ApiImplicitParam(value = "销售编号",name ="mbSaleId")
     @RequestMapping("delSalesInfo")
     public CommonResult delSalesInfo(@RequestParam(value="salesId",required = true) String salesId){
     	CommonResult result=new CommonResult();
@@ -286,7 +311,49 @@ public class SalesInfoController {
 			// TODO: handle exception
 			result.setMessage(e.getMessage()+"删除异常");
 			result.setCode(500);
-			log.info("删除异常");
+			log.info("删除异常",e);
+			
+			return result;
+		}
+    	
+    	return result;
+    }
+    
+    @ApiOperation(value="获取状态为状态的销售成员,成树状结构",notes="获取状态为状态的销售成员,成树状结构")
+    @RequestMapping("getSalesTree")
+    public CommonResult getSalesTree(){
+    	CommonResult result=new CommonResult();
+    	try {
+    		QueryWrapper qw=new QueryWrapper<>();
+    		qw.eq("sale_status", "0");
+    		List<SalesInfo> rows=salesInfoService.list(qw);
+    		// 筛选父菜单，剩余子菜单
+			List<SalesInfo> tree = new ArrayList<>();
+		    for (SalesInfo node : rows) {
+		    	// 获取父菜单
+		        if (StrUtil.isBlank(node.getMbSalePid())) {
+		            tree.add(node);
+		            continue;
+		        }
+		        // 组装子菜单
+		        for (SalesInfo parent : rows) {
+		            if (null != node.getMbSalePid() && node.getMbSalePid().equals(parent.getMbSaleId())) {
+		                if (null == parent.getChildren()) {
+		                    parent.setChildren(new ArrayList<>());
+		                }
+		                parent.getChildren().add(node);
+		                break;
+		            }
+		        }
+		    }
+		    result.setData(tree);
+    		
+    		
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setMessage(e.getMessage()+"查询销售树形结构异常");
+			result.setCode(500);
+			log.info("查询销售树形结构异常",e);
 			
 			return result;
 		}
