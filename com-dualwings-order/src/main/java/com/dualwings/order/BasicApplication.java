@@ -4,21 +4,20 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan({"com.dualwings.basic.*"})
-@MapperScan({"com.dualwings.basic.mapper","com.dualwings.basic.dto","com.dualwings.basic.utils","com.dualwings.basic.config"})
+@ComponentScan({ "com.dualwings.order.*" })
+@MapperScan({ "com.dualwings.order.mapper", "com.dualwings.order.domain.entity",
+		"com.dualwings.order.config" })
 //@EnableFeignClients
 //@NacosPropertySource(dataId = "boot-user-service", autoRefreshed = true)
 //@EnableDiscoveryClient
-public class Application {
+public class BasicApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+		SpringApplication.run(BasicApplication.class, args);
     }
 
 }

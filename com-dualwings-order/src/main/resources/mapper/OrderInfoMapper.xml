@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dualwings.order.mapper.OrderInfoMapper">
+
+	<select id="checkRelation" resultType="java.lang.Integer">
+		select count(1) from mb_account_info mbinfo where usr_id=#{usr_id} and ref_sale_id=#{sale_id} 
+	</select>
+	
+	<select id="checkMbAccount" resultType="java.lang.Integer">
+		select count(1) from mb_account_info mbinfo where usr_id=#{usr_id} 
+	</select>
+	<select id="checkSaleInfo" resultType="java.lang.Integer">
+		select count(1) from sys_sale_info mbinfo where mb_sale_id=#{sale_id} 
+	</select>
+</mapper>
